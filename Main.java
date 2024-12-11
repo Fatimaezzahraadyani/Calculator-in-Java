@@ -46,11 +46,12 @@ public class Main {
                     puiss(saisir(), saisir());
                     break;
                 case 6:
-                    System.out.println("enter un nombre a : \n");
+                    System.out.println("entrer un nombre a : \n");
                     racine(saisir());
                     break;
                 case 7:
-                    System.out.println("le factorielle de a et b : \n");
+                    System.out.println("entrer un nombra a : \n");
+                    fact(saisir());
                     break;
                 case 8:
                     return;
@@ -106,7 +107,11 @@ public class Main {
         }
     }
         public static void fact ( double a){
-            System.out.println("le nombre factorisé est : \n");
+            for(double i =a-1;i>=1;i--){
+                a = a * i;
+            }
+            System.out.println("le nombre factorisé est : "+ a);
+
 
         }
 }
