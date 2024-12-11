@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.Math;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -11,7 +12,7 @@ public class Main {
         // to see how IntelliJ IDEA suggests fixing it.
 
         while (true) {
-            System.out.println("\n ---Menu Principale--- \n"
+            System.out.println("\n ----Menu Principale---- \n"
                     + "\n (1).l'addition "
                     + "\n (2).la Multiplication"
                     + "\n (3).la Soustraction"
@@ -26,29 +27,27 @@ public class Main {
             switch (s) {
                 case 1:
                     System.out.println("entrer les deux nombre :");
-                    addition(saisir(), saisir());
-                    System.out.println("l'addition de a et b : \n");
+                    addition(saisir(),saisir());
                     break;
                 case 2:
                     System.out.println("entrer les deux nombre :");
                     mult(saisir(), saisir());
-                    System.out.println("la Multiplication de a et b : \n");
                     break;
                 case 3:
                     System.out.println("entrer les deux nombre :");
                     soustraction(saisir(), saisir());
-                    System.out.println("la Soustraction de a et b : \n");
                     break;
                 case 4:
                     System.out.println("entrer les deux nombre :");
                     div(saisir(),saisir());
-                    System.out.println("la Divition de a et b : \n");
                     break;
                 case 5:
-                    System.out.println("la puissance de a et b : \n");
+                    System.out.println("entrer les deux nombre :");
+                    puiss(saisir(),saisir());
                     break;
                 case 6:
-                    System.out.println("la Racine carée de a et b : \n");
+                    System.out.println("enter un nombre a : \n");
+                    racine(saisir());
                     break;
                 case 7:
                     System.out.println("le factorielle de a et b : \n");
@@ -68,25 +67,41 @@ public class Main {
     }
 
     public static void addition(double a, double b) {
+        System.out.println("l'addition de a et b : \n");
         System.out.println(+(a + b));
     }
 
     public static void mult(double a, double b) {
+        System.out.println("la Multiplication de a et b : \n");
         System.out.println(+(a * b));
     }
 
     public static void soustraction(double a, double b) {
+        System.out.println("la Soustraction de a et b : \n");
         System.out.println(+(a - b));
     }
 
     public static void div(double a, double b) {
+        System.out.println("la Divition de a et b : \n");
         if (b != 0)
             System.out.println(+(a / b));
         else {
             System.out.println("entre un nombre sup à 0 ");
         }
     }
-   public static void puiss(double a,double b);
-     
+   public static void puiss(double a,double b){
+       System.out.println("la puissance de a et b : \n");
+       //a = base
+        //b = puiss
+        System.out.println(+(Math.pow(a,b)));
+    }
+   public static void racine(double a){
+       System.out.println("la Racine carée de a : \n");
+       System.out.println(+(Math.sqrt(a)));
+    }
+   public static void fact(double a) {
+        System.out.println("le nombre factorisé est : \n");
+        
+   }
 }
 
