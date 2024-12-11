@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.lang.Math;
 
@@ -6,12 +7,15 @@ import java.lang.Math;
 public class Main {
     public static void main(String[] args) {
         double a, b;
+        int s = 0;
         Scanner sc = new Scanner(System.in);
+        String choix ;
+
 
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
 
-        while (true) {
+        while (s != 8) {
             System.out.println("\n ----Menu Principale---- \n"
                     + "\n (1).l'addition "
                     + "\n (2).la Multiplication"
@@ -22,43 +26,49 @@ public class Main {
                     + "\n (7).le Factorielle"
                     + "\n (8).Quitter \n");
             System.out.println("Vous pouvez choisir parmis les operations precedentes : \n");
-            int s = sc.nextInt();
+            choix = sc.next();
+              try {
+                 s =Integer.parseInt(choix);
+                  switch (s) {
+                      case 1:
+                          System.out.println("entrer les deux nombre :");
+                          addition(saisir(), saisir());
+                          break;
+                      case 2:
+                          System.out.println("entrer les deux nombre :");
+                          mult(saisir(), saisir());
+                          break;
+                      case 3:
+                          System.out.println("entrer les deux nombre :");
+                          soustraction(saisir(), saisir());
+                          break;
+                      case 4:
+                          System.out.println("entrer les deux nombre :");
+                          div(saisir(), saisir());
+                          break;
+                      case 5:
+                          System.out.println("entrer les deux nombre :");
+                          puiss(saisir(), saisir());
+                          break;
+                      case 6:
+                          System.out.println("entrer un nombre a : \n");
+                          racine(saisir());
+                          break;
+                      case 7:
+                          System.out.println("entrer un nombra a : \n");
+                          fact(saisir());
+                          break;
+                      case 8:
+                          return;
+                      default:
+                          System.out.println("entrer un choix valide");
+                          break;
+                  }
+              }
+              catch (Exception e){
+                  System.out.println("entrer un nombre ");
 
-            switch (s) {
-                case 1:
-                    System.out.println("entrer les deux nombre :");
-                    addition(saisir(), saisir());
-                    break;
-                case 2:
-                    System.out.println("entrer les deux nombre :");
-                    mult(saisir(), saisir());
-                    break;
-                case 3:
-                    System.out.println("entrer les deux nombre :");
-                    soustraction(saisir(), saisir());
-                    break;
-                case 4:
-                    System.out.println("entrer les deux nombre :");
-                    div(saisir(), saisir());
-                    break;
-                case 5:
-                    System.out.println("entrer les deux nombre :");
-                    puiss(saisir(), saisir());
-                    break;
-                case 6:
-                    System.out.println("entrer un nombre a : \n");
-                    racine(saisir());
-                    break;
-                case 7:
-                    System.out.println("entrer un nombra a : \n");
-                    fact(saisir());
-                    break;
-                case 8:
-                    return;
-                default:
-                    System.out.println("entrer un choix valide");
-                    break;
-            }
+              }
         }
     }
 
@@ -66,7 +76,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
-
     public static void addition(double a, double b) {
         System.out.println("l'addition de a et b : \n");
         System.out.println(+(a + b));
@@ -83,14 +92,13 @@ public class Main {
     }
 
     public static void div(double a, double b) {
-        System.out.println("la Divition de a et b : \n");
-        if (b != 0)
-            System.out.println(+(a / b));
-        else {
-            System.out.println("entre un nombre sup à 0 ");
+        while (b==0||a==0){
+         System.out.println("Enter un nombre valide !!");
+          a =saisir();
+          b =saisir();
         }
-    }
-
+        System.out.println("la Divition de a et b :" +(a/b)+ "\n");
+        }
     public static void puiss(double a, double b) {
         System.out.println("la puissance de a et b : \n");
         //a = base
@@ -111,7 +119,5 @@ public class Main {
                 a = a * i;
             }
             System.out.println("le nombre factorisé est : "+ a);
-
-
         }
 }
