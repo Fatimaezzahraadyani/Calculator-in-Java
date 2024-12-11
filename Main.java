@@ -27,7 +27,7 @@ public class Main {
             switch (s) {
                 case 1:
                     System.out.println("entrer les deux nombre :");
-                    addition(saisir(),saisir());
+                    addition(saisir(), saisir());
                     break;
                 case 2:
                     System.out.println("entrer les deux nombre :");
@@ -39,11 +39,11 @@ public class Main {
                     break;
                 case 4:
                     System.out.println("entrer les deux nombre :");
-                    div(saisir(),saisir());
+                    div(saisir(), saisir());
                     break;
                 case 5:
                     System.out.println("entrer les deux nombre :");
-                    puiss(saisir(),saisir());
+                    puiss(saisir(), saisir());
                     break;
                 case 6:
                     System.out.println("enter un nombre a : \n");
@@ -89,19 +89,24 @@ public class Main {
             System.out.println("entre un nombre sup à 0 ");
         }
     }
-   public static void puiss(double a,double b){
-       System.out.println("la puissance de a et b : \n");
-       //a = base
-        //b = puiss
-        System.out.println(+(Math.pow(a,b)));
-    }
-   public static void racine(double a){
-       System.out.println("la Racine carée de a : \n");
-       System.out.println(+(Math.sqrt(a)));
-    }
-   public static void fact(double a) {
-        System.out.println("le nombre factorisé est : \n");
-        
-   }
-}
 
+    public static void puiss(double a, double b) {
+        System.out.println("la puissance de a et b : \n");
+        //a = base
+        //b = puiss
+        System.out.println(+(Math.pow(a, b)));
+    }
+
+    public static void racine(double a) {
+        if (a >= 0){
+            System.out.println("la Racine carée de a : \n");
+            System.out.println(+(Math.sqrt(a)));
+        }else {
+            System.out.println("entrer un nombre positive");
+        }
+    }
+        public static void fact ( double a){
+            System.out.println("le nombre factorisé est : \n");
+
+        }
+}
