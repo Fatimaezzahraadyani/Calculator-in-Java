@@ -1,5 +1,5 @@
 import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 import java.lang.Math;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -32,7 +32,7 @@ public class Main {
                   switch (s) {
                       case 1:
                           System.out.println("entrer les deux nombre :");
-                          addition(saisir(), saisir());
+                          addition(saisir(),saisir());
                           break;
                       case 2:
                           System.out.println("entrer les deux nombre :");
@@ -66,7 +66,8 @@ public class Main {
                   }
               }
               catch (Exception e){
-                  System.out.println("entrer un nombre ");
+                  System.out.println(e.getMessage());
+                          //"entrer un nombre ");
 
               }
         }
@@ -110,6 +111,10 @@ public class Main {
         System.out.println("la Racine carée de a : " +(Math.sqrt(a))+ "\n");
     }
         public static void fact ( double a){
+            while (a<=0){
+                System.out.println("entrer un nombre positive");
+                a=saisir();
+            }
             for(double i =a-1;i>=1;i--){
                 a = a * i;
             }
