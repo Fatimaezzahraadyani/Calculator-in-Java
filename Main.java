@@ -1,5 +1,5 @@
 import java.util.InputMismatchException;
-import java.util.*;
+import java.util.Scanner;
 import java.lang.Math;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -9,7 +9,7 @@ public class Main {
         double a, b;
         int s = 0;
         Scanner sc = new Scanner(System.in);
-        String choix ;
+        String choix;
 
 
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
@@ -27,97 +27,99 @@ public class Main {
                     + "\n (8).Quitter \n");
             System.out.println("Vous pouvez choisir parmis les operations precedentes : \n");
             choix = sc.next();
-              try {
-                 s =Integer.parseInt(choix);
-                  switch (s) {
-                      case 1:
-                          System.out.println("entrer les deux nombre :");
-                          addition(saisir(),saisir());
-                          break;
-                      case 2:
-                          System.out.println("entrer les deux nombre :");
-                          mult(saisir(), saisir());
-                          break;
-                      case 3:
-                          System.out.println("entrer les deux nombre :");
-                          soustraction(saisir(), saisir());
-                          break;
-                      case 4:
-                          System.out.println("entrer les deux nombre :");
-                          div(saisir(), saisir());
-                          break;
-                      case 5:
-                          System.out.println("entrer les deux nombre :");
-                          puiss(saisir(), saisir());
-                          break;
-                      case 6:
-                          System.out.println("entrer un nombre a : \n");
-                          racine(saisir());
-                          break;
-                      case 7:
-                          System.out.println("entrer un nombra a : \n");
-                          fact(saisir());
-                          break;
-                      case 8:
-                          return;
-                      default:
-                          System.out.println("entrer un choix valide");
-                          break;
-                  }
-              }
-              catch (Exception e){
-                  System.out.println(e.getMessage());
-                          //"entrer un nombre ");
+            try {
+                s = Integer.parseInt(choix);
+                switch (s) {
+                    case 1:
+                        System.out.println("entrer les deux nombre :");
+                        addition(saisir(), saisir());
+                        break;
+                    case 2:
+                        System.out.println("entrer les deux nombre :");
+                        mult(saisir(), saisir());
+                        break;
+                    case 3:
+                        System.out.println("entrer les deux nombre :");
+                        soustraction(saisir(), saisir());
+                        break;
+                    case 4:
+                        System.out.println("entrer les deux nombre :");
+                        div(saisir(), saisir());
+                        break;
+                    case 5:
+                        System.out.println("entrer les deux nombre :");
+                        puiss(saisir(), saisir());
+                        break;
+                    case 6:
+                        System.out.println("entrer un nombre a : \n");
+                        racine(saisir());
+                        break;
+                    case 7:
+                        System.out.println("entrer un nombra a : \n");
+                        fact(saisir());
+                        break;
+                    case 8:
+                        return;
+                    default:
+                        System.out.println("entrer un choix valide");
+                        break;
+                }
+            } catch (Exception e) {
+                System.out.println("Erreur !!" + e.getMessage());
 
-              }
+            }
         }
     }
+
 
     public static double saisir() {
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt();
+        return scanner.nextDouble();
     }
+
     public static void addition(double a, double b) {
-        System.out.println("l'addition de a et b : " +(a + b)+ "\n");
+        System.out.println("l'addition de a et b : " + (a + b) + "\n");
     }
 
     public static void mult(double a, double b) {
-        System.out.println("la Multiplication de a et b : " +(a * b)+ "\n");
+        System.out.println("la Multiplication de a et b : " + (a * b) + "\n");
     }
 
     public static void soustraction(double a, double b) {
-        System.out.println("la Soustraction de a et b : " +(a - b)+ "\n");
+        System.out.println("la Soustraction de a et b : " + (a - b) + "\n");
     }
 
     public static void div(double a, double b) {
-        while (b==0||a==0){
-         System.out.println("Enter un nombre valide !!");
-          a =saisir();
-          b =saisir();
+        while (b == 0) {
+            System.out.println("Enter un nombre valide !!");
+            a = saisir();
+            b = saisir();
         }
-        System.out.println("la Divition de a et b : " +(a/b)+ "\n");
-        }
+        System.out.println("la Divition de a et b : " + (a / b) + "\n");
+    }
+
     public static void puiss(double a, double b) {
-        System.out.println("la puissance de a et b : " +(Math.pow(a, b))+ "\n");
+        System.out.println("la puissance de a et b : " + (Math.pow(a, b)) + "\n");
         //a = base
         //b = puiss
     }
 
     public static void racine(double a) {
-        while (a<=0){
+        while (a <= 0) {
             System.out.println("entrer un nombre positive");
-            a=saisir();
+            a = saisir();
         }
-        System.out.println("la Racine carée de a : " +(Math.sqrt(a))+ "\n");
+        System.out.println("la Racine carée de a : " + (Math.sqrt(a)) + "\n");
     }
-        public static void fact ( double a){
-            while (a<=0){
-                System.out.println("entrer un nombre positive");
-                a=saisir();
-            }
-            for(double i =a-1;i>=1;i--){
-                a = a * i;
-            }
-            System.out.println("le nombre factorisé est : "+ a);
+
+    public static void fact(double a) {
+        while (a <= 0) {
+            System.out.println("entrer un nombre positive");
+            a = saisir();
         }
+        for (double i = a - 1; i >= 1; i--) {
+            a = a * i;
+        }
+        System.out.println("le nombre factorisé est : " + a);
+    }
 }
